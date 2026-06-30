@@ -1,1 +1,59 @@
+.animation-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(135deg, #1e1b4b, #311042);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  margin-top: 20px;
+}
 
+.animation-container img {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.photo-left {
+  left: 5%;
+  top: 25%;
+  animation: moveRight 4s ease-in-out infinite alternate;
+}
+
+.photo-right {
+  right: 5%;
+  top: 55%;
+  animation: moveLeft 4s ease-in-out infinite alternate;
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(calc(100vw - 250px)) rotate(360deg);
+    filter: drop-shadow(0 0 15px #f59e0b);
+  }
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+
+  100% {
+    transform: translateX(calc(-100vw + 250px)) rotate(-360deg);
+    filter: drop-shadow(0 0 15px #3b82f6);
+  }
+}
+
+.animation-container img:hover {
+  animation-play-state: paused;
+  cursor: pointer;
+  scale: 1.2;
+}
